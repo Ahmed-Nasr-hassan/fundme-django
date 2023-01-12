@@ -1,5 +1,13 @@
-<form method="post" action="{% url 'signup' %}">
+{% extends 'base.html' %}
+{% block content %}
+<form method="post" action="{% url 'signup' %}" style="margin-left: 45%;">
     {% csrf_token %}
+    <p>
+        {{ form.first_name.label_tag }} {{ form.first_name }}
+    </p>
+    <p>
+        {{ form.last_name.label_tag }} {{ form.last_name }}
+    </p>
     <p>
         {{ form.username.label_tag }} {{ form.username }}
     </p>
@@ -14,3 +22,4 @@
     </p>
     <input type="submit" value="Sign up">
 </form>
+{% endblock %}

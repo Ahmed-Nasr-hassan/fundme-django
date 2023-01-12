@@ -22,11 +22,17 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
 from rest_framework_simplejwt.views import TokenVerifyView
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('signup/', coreViews.signup, name='signup'),
     path('login/', coreViews.login_view, name='login'),
+    path('logout/', coreViews.logout_view, name='logout'),
+    path('profile/', coreViews.showCustomer, name='showcustomer'),
+    path('update-profile/', coreViews.updateCustomer, name='updatecustomer'),
+    path('create-profile',coreViews.createCustomer,name='create-customer'),
     path('core/', include('core.urls')),
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.jwt')),
@@ -34,4 +40,15 @@ urlpatterns = [
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
 
+    path('', coreViews.home, name='home'),
+    path('create/', coreViews.create_campaign, name='create_campaign'),
+    path('<int:campaign_id>/', coreViews.campaign_detail, name='campaign_detail'),
+    path('list/', coreViews.campaign_list, name='campaign_list'),
+    path('<int:campaign_id>/update/', coreViews.update_campaign, name='update_campaign'),
+    path('<int:campaign_id>/delete/', coreViews.delete_campaign, name='delete_campaign'),
+
+
+
 ]
+
+urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

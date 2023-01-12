@@ -1,5 +1,14 @@
 from rest_framework import serializers
 from .models import Campaign,Customer,Investment
+from djoser.serializers import UserCreateSerializer
+
+
+class CustomUserCreateSerializer(UserCreateSerializer):  
+    class Meta(UserCreateSerializer.Meta):
+        fields = '__all__'
+        fields = ['id','first_name','last_name','username','email','password']
+    
+
 
 class CampaignSerializer(serializers.ModelSerializer):
     class Meta:

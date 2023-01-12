@@ -1,1 +1,19 @@
-<h1>HOME PAGE</h1>
+{% extends 'base.html' %}
+{% block content %}
+<h1>Home</h1>
+<div class="campaign-stats">
+    <p>Total Campaigns: {{ campaign_count }}</p>
+    <p>Total Required Fund: {{ total_fund }}</p>
+</div>
+<div class="campaign-cards">
+    {% for campaign in campaigns %}
+        <div class="campaign-card">
+            <img src="{{ campaign.image.url }}" alt="{{ campaign.title }}">
+            <h2>{{ campaign.title }}</h2>
+            <p>{{ campaign.details }}</p>
+            <p>Required Fund: {{ campaign.required_fund }}</p>
+            <a href="{% url 'campaign_detail' campaign.id %}">View Campaign</a>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

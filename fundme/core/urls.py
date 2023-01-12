@@ -7,4 +7,5 @@ router.register('campaign', CampaignViewSet)
 router.register('customer', CustomerViewSet)
 router.register('investment', InvestmentViewSet)
 
+
 urlpatterns = router.urls
