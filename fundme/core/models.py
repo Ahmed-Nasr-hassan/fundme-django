@@ -19,8 +19,9 @@ class Campaign(models.Model):
     customer=models.ForeignKey(Customer,on_delete=models.CASCADE,related_name="campaigns")
 
 
+
 class Investment(models.Model):
-    customer=models.ForeignKey(Customer,on_delete=models.PROTECT,related_name="investments")
+    customer=models.ForeignKey(Customer,on_delete=models.CASCADE,related_name="investments")
     campaign=models.ForeignKey(Campaign,on_delete=models.CASCADE,related_name="investments")
     investment_value=models.PositiveIntegerField()
     date_of_investment=models.DateField(auto_now_add=True)

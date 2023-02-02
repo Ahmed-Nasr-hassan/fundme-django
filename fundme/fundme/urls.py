@@ -27,12 +27,14 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
     path('signup/', coreViews.signup, name='signup'),
     path('login/', coreViews.login_view, name='login'),
     path('logout/', coreViews.logout_view, name='logout'),
     path('profile/', coreViews.showCustomer, name='showcustomer'),
     path('update-profile/', coreViews.updateCustomer, name='updatecustomer'),
     path('create-profile',coreViews.createCustomer,name='create-customer'),
+    
     path('core/', include('core.urls')),
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.jwt')),

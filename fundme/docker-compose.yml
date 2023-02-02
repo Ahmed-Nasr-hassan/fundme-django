@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  django-car-app:
+    container_name: fundme-container
+    image: fundme-app-image:1.0
+    ports:
+      - "8000:8000"
+  
+
+

@@ -3,12 +3,10 @@
 <div class="card" style="width:30%; margin: 50px; margin-left: 45%; ">
     <img class="card-img-top" src="{{ customer.image.url }}" alt="Profile image" width="200" height="200">
     <div class="card-body">
-      <h5 class="card-title">{{customer.phone}}</h5>
+      <h5 class="card-title">{{customer.user.username}}</h5>
       <p class="card-text">{{customer.card_number}}</p>
     </div>
    <ul class="list-group list-group-flush">
-      <li class="list-group-item">{{customer.phone}}</li>
-      <li class="list-group-item">{{customer.phone}}</li>
       <li class="list-group-item">{{customer.phone}}</li>
     </ul>
 </div>
